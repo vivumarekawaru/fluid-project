@@ -170,5 +170,17 @@ When either filter reaches its replacement threshold:
 
 ---
 
-## 📜 License
-This project is open-source under the MIT License.
+## 📌 Next Steps & Future Roadmap
+
+1. **🧪 TDS Feature for RO Membrane**:
+   - Integrate dual Total Dissolved Solids (TDS) sensors (feed water vs. RO permeate).
+   - Compute real-time membrane rejection rate ($\% \text{ Rejection} = \frac{\text{Feed TDS} - \text{Product TDS}}{\text{Feed TDS}} \times 100$).
+   - Trigger alert when membrane rejection drops below acceptable threshold (e.g., $< 90\%$).
+
+2. **📦 Custom Water-Resistant Casing**:
+   - Design and 3D-print a custom, splash-proof enclosure (IP65 rated or similar) to house the ESP32, wiring terminals, and status LEDs securely away from pipe condensation and water drips.
+
+3. **⚠️ Food-Grade Flow Sensor Upgrade & Calibration**:
+   - **Confirmation on YF-S201**: The standard black **YF-S201 is an industrial-grade sensor and is NOT certified food-grade** (it lacks NSF/ANSI 61 or FDA food-contact compliance, and the standard POM plastic/O-rings are not rated for long-term potable drinking water).
+   - **Action**: Replace with a certified food-grade flow sensor (such as a 1/4" push-fit food-grade POM/PP Hall-effect flow sensor).
+   - **Post-Replacement Testing**: Because different sensors have different rotor geometries and pulse frequencies ($K$-factor), perform a volume calibration test (e.g., using a 1-litre graduated container) after replacement and update `FLOW_CAL_FACTOR` and `PULSES_PER_LITRE` in the configuration section.
